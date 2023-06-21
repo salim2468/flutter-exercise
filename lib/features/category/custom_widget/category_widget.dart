@@ -13,9 +13,9 @@ class CategoryWidget extends StatelessWidget {
       height: 80,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: categoryTitle.length,
+        itemCount: categoryType.length,
         itemBuilder: (context, index) => CategoryCard(
-          title: categoryTitle[index],
+          categoryType: categoryType[index],
           imagePath: categoryImagesPath[index],
         ),
       ),

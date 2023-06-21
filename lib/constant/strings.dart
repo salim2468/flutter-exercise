@@ -8,7 +8,7 @@ class AppString {
   static const Color kCard = Color(0xffDADBFF);
 }
 
-const List<String> categoryTitle = [
+const List<String> categoryType = [
   'Cardio',
   'Olympic Weightlifting',
   'Plyometrics',

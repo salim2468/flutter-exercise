@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../constant/colors.dart';
@@ -10,8 +12,10 @@ class CategoryListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CategoryDetailPage(exercise))),
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CategoryDetailPage(exercise)));
+      },
       child: Container(
         margin: const EdgeInsets.all(6),
         padding: const EdgeInsets.all(16),

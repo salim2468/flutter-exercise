@@ -9,11 +9,11 @@ class DioClient {
   final _baseUrl = 'https://api.api-ninjas.com/v1/exercises';
 
   final String API_KEY = 'eSfgARDZCtdH0p5r6HVEBQ==WB0X9vY7k8cOtRhc';
-  Future<ExerciseList> get({String? url}) async {
-    print('$_baseUrl');
+  Future<ExerciseList> getExerciseOfCategory({String? endPoint}) async {
+    print('$_baseUrl$endPoint');
     try {
       final response = await _dio.get(
-        '$_baseUrl$url',
+        '$_baseUrl$endPoint',
         options: Options(headers: {
           'X-Api-Key': API_KEY,
         }),
@@ -23,7 +23,6 @@ class DioClient {
           ExerciseList.fromJson({'exerciseList': response.data});
       return exerciseList;
     } catch (e) {
-      print('sahdfkjahs');
       print(e);
       throw Exception(e);
     }
