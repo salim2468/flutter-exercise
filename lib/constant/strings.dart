@@ -18,6 +18,16 @@ const List<String> categoryType = [
   'Strongman'
 ];
 
+const Map<String, String> categoryTypeEndpoints = {
+  'Cardio': 'cardio',
+  'Olympic Weightlifting': 'olympic_weightlifting',
+  'Plyometrics': 'plyometrics',
+  'Powerlifting': 'powerlifting',
+  'Strength': 'strength',
+  'Stretching': 'stretching',
+  'Strongman': 'strongman'
+};
+
 const List<String> categoryImagesPath = [
   'assets/images/cardio.png',
   'assets/images/weightlifter.png',
