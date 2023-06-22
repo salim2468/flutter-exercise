@@ -20,7 +20,7 @@ class CategoryListCard extends StatelessWidget {
         margin: const EdgeInsets.all(6),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppColor.kCard,
+          color: AppColor.kCardSecondary,
           borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
