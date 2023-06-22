@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppString {
-  static const String = 'Strength';
   static const Color kWhite = Colors.white;
   static Color kPrimary = Colors.grey.shade500;
   static Color kBackground = Colors.grey.shade200;

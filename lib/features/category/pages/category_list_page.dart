@@ -9,7 +9,6 @@ import '../custom_widget/category_list_card.dart';
 final categoryListProvider = FutureProvider.autoDispose<ExerciseList>((ref) {
   final dioClient = ref.watch(dioClientProivder);
   final category = ref.watch(categoryTitleProvider);
-  print('Category $category');
 
   return dioClient.getExerciseOfCategory(
       endPoint: '?type=${categoryTypeEndpoints[category]}');
@@ -18,8 +17,8 @@ final categoryListProvider = FutureProvider.autoDispose<ExerciseList>((ref) {
 final categoryTitleProvider = StateProvider((ref) => '');
 
 class CategoryListPage extends ConsumerWidget {
-  CategoryListPage(this.categoryTitle, {super.key});
-  String categoryTitle = '';
+  const CategoryListPage({required this.categoryTitle, super.key});
+  final String categoryTitle;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

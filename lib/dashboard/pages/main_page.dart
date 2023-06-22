@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_exercise/constant/strings.dart';
 import 'package:flutter_exercise/dashboard/custom_widget/welcome_image.dart';
-
 import '../../features/category/custom_widget/category_widget.dart';
 import '../../features/exercise_level/custom_widget/exercise_leve_slider.dart';
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../constant/colors.dart';
 import '../pages/category_list_page.dart';
 
@@ -14,7 +13,9 @@ class CategoryCard extends ConsumerWidget {
     ref.watch(categoryTitleProvider.notifier).state = categoryType;
 
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => CategoryListPage(categoryType)));
+        builder: (context) => CategoryListPage(
+              categoryTitle: categoryType,
+            )));
   }
 
   @override

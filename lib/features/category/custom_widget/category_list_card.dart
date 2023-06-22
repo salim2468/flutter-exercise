@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../../../constant/colors.dart';
 import '../../../model/exercise/exercise.dart';
 import '../pages/category_detail_page.dart';

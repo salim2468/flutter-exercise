@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
-  double? marginVertical;
-  double? width;
-  CustomText({required this.text, this.marginVertical, this.width, super.key});
+  final double? marginVertical;
+  final double? width;
+  const CustomText(
+      {required this.text, this.marginVertical, this.width, super.key});
 
   void onTap(BuildContext context) {
     Navigator.of(context).pop();
