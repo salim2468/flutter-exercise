@@ -33,7 +33,10 @@ class CategoryCard extends ConsumerWidget {
               imagePath,
               height: 30,
             ),
-            Text(categoryType),
+            Text(
+              categoryType,
+              style: const TextStyle(color: Colors.black),
+            ),
           ],
         ),
       ),

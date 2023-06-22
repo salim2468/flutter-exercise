@@ -33,17 +33,32 @@ class CategoryListCard extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            Container(
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                  color: AppColor.kWhite,
-                  borderRadius: BorderRadius.circular(8)),
-              child: Text(
-                exercise.difficulty,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      color: AppColor.kWhite,
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Text(
+                    exercise.difficulty,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
-              ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Muscles',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Text(exercise.muscle.toUpperCase()),
+                  ],
+                )
+              ],
             )
           ],
         ),
