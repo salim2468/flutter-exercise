@@ -80,7 +80,8 @@ class CategoryDetailPage extends StatelessWidget {
                   ),
                   child: Text(
                     exercise.instructions,
-                    style: textStyle.copyWith(fontSize: 15),
+                    style: textStyle.copyWith(
+                        fontSize: 15, color: Colors.grey.shade300),
                   ),
                 )
               ],
