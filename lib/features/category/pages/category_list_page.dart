@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_exercise/common/loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/dio_client.dart';
+import '../../../constant/strings.dart';
 import '../../../model/exercise/exercise.dart';
 import '../custom_widget/category_list_card.dart';
 
-final categoryListProvider = FutureProvider<ExerciseList>((ref) {
+final categoryListProvider = FutureProvider.autoDispose<ExerciseList>((ref) {
   final dioClient = ref.watch(dioClientProivder);
-  return dioClient.get(url: '?type=cardio');
+  final category = ref.watch(categoryTitleProvider);
+  print('Category $category');
+
+  return dioClient.getExerciseOfCategory(
+      endPoint: '?type=${categoryTypeEndpoints[category]}');
 });
+
+final categoryTitleProvider = StateProvider((ref) => '');
 
 class CategoryListPage extends ConsumerWidget {
   CategoryListPage(this.categoryTitle, {super.key});
@@ -25,7 +32,7 @@ class CategoryListPage extends ConsumerWidget {
             data: (data) => SizedBox(
                 height: double.infinity,
                 child: ListView.builder(
-                  itemCount: data.exerciseList.length - 1,
+                  itemCount: data.exerciseList.length,
                   itemBuilder: (context, index) {
                     Exercise exercise = data.exerciseList[index];
                     return CategoryListCard(exercise);

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../constant/colors.dart';
@@ -10,8 +12,10 @@ class CategoryListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CategoryDetailPage(exercise))),
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CategoryDetailPage(exercise)));
+      },
       child: Container(
         margin: const EdgeInsets.all(6),
         padding: const EdgeInsets.all(16),
@@ -29,17 +33,32 @@ class CategoryListCard extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            Container(
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                  color: AppColor.kWhite,
-                  borderRadius: BorderRadius.circular(8)),
-              child: Text(
-                exercise.difficulty,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      color: AppColor.kWhite,
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Text(
+                    exercise.difficulty,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
-              ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Muscles',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Text(exercise.muscle.toUpperCase()),
+                  ],
+                )
+              ],
             )
           ],
         ),

@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constant/colors.dart';
 import '../pages/category_list_page.dart';
 
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({required this.title, required this.imagePath, super.key});
-  final String title;
+class CategoryCard extends ConsumerWidget {
+  const CategoryCard(
+      {required this.categoryType, required this.imagePath, super.key});
+  final String categoryType;
   final String imagePath;
 
-  void onTap(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => CategoryListPage(title)));
+  void onTap(BuildContext context, WidgetRef ref) {
+    ref.watch(categoryTitleProvider.notifier).state = categoryType;
+
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => CategoryListPage(categoryType)));
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
-      onTap: () => onTap(context),
+      onTap: () => onTap(context, ref),
       child: Container(
         margin: const EdgeInsets.all(5),
         padding: const EdgeInsets.all(5),
@@ -29,7 +33,10 @@ class CategoryCard extends StatelessWidget {
               imagePath,
               height: 30,
             ),
-            Text(title),
+            Text(
+              categoryType,
+              style: const TextStyle(color: Colors.black),
+            ),
           ],
         ),
       ),
