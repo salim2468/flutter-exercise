@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../../../constant/colors.dart';
 import '../../../model/exercise/exercise.dart';
 import '../pages/category_detail_page.dart';
@@ -20,7 +17,7 @@ class CategoryListCard extends StatelessWidget {
         margin: const EdgeInsets.all(6),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppColor.kCard,
+          color: AppColor.kCardSecondary,
           borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
@@ -28,7 +25,10 @@ class CategoryListCard extends StatelessWidget {
           children: [
             Text(
               exercise.name,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w300,
+                  color: AppColor.kBlack),
             ),
             const SizedBox(
               height: 5,
@@ -45,17 +45,21 @@ class CategoryListCard extends StatelessWidget {
                     exercise.difficulty,
                     style: const TextStyle(
                       fontWeight: FontWeight.w500,
+                      color: AppColor.kBlack,
                     ),
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Muscles',
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12, color: AppColor.kBlack),
                     ),
-                    Text(exercise.muscle.toUpperCase()),
+                    Text(
+                      exercise.muscle.toUpperCase(),
+                      style: const TextStyle(color: AppColor.kBlack),
+                    ),
                   ],
                 )
               ],
