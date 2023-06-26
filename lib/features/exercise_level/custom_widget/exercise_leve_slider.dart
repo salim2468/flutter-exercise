@@ -23,7 +23,7 @@ class ExerciseLevelSlider extends StatelessWidget {
             margin: const EdgeInsets.all(5),
             child: Stack(
               children: [
-                Image.network(
+                Image.asset(
                   imageList[index],
                   fit: BoxFit.cover,
                   width: 300,

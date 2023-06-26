@@ -26,7 +26,8 @@ class CategoryCard extends ConsumerWidget {
         margin: const EdgeInsets.all(5),
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
-            color: AppColor.kCard, borderRadius: BorderRadius.circular(8.0)),
+            color: AppColor.kWhite.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(8.0)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
