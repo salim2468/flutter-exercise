@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_exercise/constant/strings.dart';
+import 'package:flutter_exercise/features/exercise_level/pages/difficulty_list_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 const imageList = [
   AppImage.beginnerImage,
@@ -11,41 +13,53 @@ const imageList = [
 const levelList = ['beginner', 'intermediate', 'expert'];
 const sloganList = ['Start from here', 'Add some more', 'Be Pro..'];
 
-class ExerciseLevelSlider extends StatelessWidget {
+class ExerciseLevelSlider extends ConsumerWidget {
   const ExerciseLevelSlider({super.key});
 
+  void onTap(BuildContext context, WidgetRef ref, levelTitle) {
+    ref.watch(difficultyTitleProvider.notifier).state = levelTitle;
+
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => DifficultyListPage(
+              categoryTitle: levelTitle,
+            )));
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return CarouselSlider.builder(
         itemCount: 3,
         itemBuilder: (context, index, pageViewIndex) {
-          return Container(
-            margin: const EdgeInsets.all(5),
-            child: Stack(
-              children: [
-                Image.asset(
-                  imageList[index],
-                  fit: BoxFit.cover,
-                  width: 300,
-                ),
-                Positioned(
-                  top: 50,
-                  left: 20,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        sloganList[index],
-                        style: const TextStyle(
-                            fontSize: 19, fontWeight: FontWeight.bold),
-                      ),
-                      Text(levelList[index].toUpperCase(),
-                          style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w900)),
-                    ],
+          return InkWell(
+            onTap: () => onTap(context, ref, levelList[index]),
+            child: Container(
+              margin: const EdgeInsets.all(5),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    imageList[index],
+                    fit: BoxFit.cover,
+                    width: 300,
                   ),
-                )
-              ],
+                  Positioned(
+                    top: 50,
+                    left: 20,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          sloganList[index],
+                          style: const TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.bold),
+                        ),
+                        Text(levelList[index].toUpperCase(),
+                            style: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w900)),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         },
