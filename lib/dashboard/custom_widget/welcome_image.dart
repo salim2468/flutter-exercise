@@ -8,10 +8,11 @@ class WelcomeImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
+      height: 200,
+      color: Colors.black,
       child: Stack(
         children: [
-          Image.network(
+          Image.asset(
             AppImage.gymImage,
             height: 200,
             width: double.infinity,
