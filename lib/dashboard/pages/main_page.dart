@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_exercise/common/text.dart';
 import 'package:flutter_exercise/dashboard/custom_widget/welcome_image.dart';
 import '../../features/category/custom_widget/category_widget.dart';
 import '../../features/exercise_level/custom_widget/exercise_leve_slider.dart';
@@ -20,19 +21,25 @@ class MainPage extends StatelessWidget {
           children: [
             WelcomeImage(),
             SizedBox(
-              height: 8,
+              height: 15,
             ),
-            Text(
-              'Category / Type',
-              style: TextStyle(fontSize: 16),
+            CustomText(
+              text: 'Category / Type',
+              alignment: Alignment.topLeft,
+              fontWeight: FontWeight.w700,
+              marginHorizontal: 6,
+              marginVertical: 2,
             ),
             CategoryWidget(),
             SizedBox(
-              height: 8,
+              height: 20,
             ),
-            Text(
-              'Start From today',
-              style: TextStyle(fontSize: 16),
+            CustomText(
+              text: 'Start From today',
+              alignment: Alignment.topLeft,
+              fontWeight: FontWeight.w700,
+              marginHorizontal: 6,
+              marginVertical: 2,
             ),
             ExerciseLevelSlider(),
           ],
