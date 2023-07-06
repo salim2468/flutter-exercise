@@ -33,7 +33,16 @@ class ExerciseLevelSlider extends ConsumerWidget {
           return InkWell(
             onTap: () => onTap(context, ref, levelList[index]),
             child: Container(
-              margin: const EdgeInsets.all(5),
+              margin: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      spreadRadius: 6,
+                      blurRadius: 6,
+                      offset: Offset(0, 2)),
+                ],
+              ),
               child: Stack(
                 children: [
                   Image.asset(
