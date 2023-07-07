@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../common/text.dart';
 import '../../constant/strings.dart';
 
 class WelcomeImage extends StatelessWidget {
@@ -21,12 +21,25 @@ class WelcomeImage extends StatelessWidget {
           const Positioned(
             top: 100,
             left: 10,
-            child: Text(
-              'Welcome, \nGet Fit',
-              style: TextStyle(
-                  color: AppString.kWhite,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: 'Welcome,',
+                  fontFamily: AppFont.primary,
+                  fontSize: 20,
+                ),
+                CustomText(
+                  text: 'Get Fit',
+                  fontFamily: AppFont.primary,
+                  fontSize: 30,
+                ),
+                CustomText(
+                  text: 'Transform your fitness into the shape',
+                  fontFamily: AppFont.primary,
+                  fontSize: 15,
+                ),
+              ],
             ),
           )
         ],

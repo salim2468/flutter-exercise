@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppString {
-  static const Color kWhite = Colors.white;
+  static const String title = "Stay Fit and Shape Your Self";
   static Color kPrimary = Colors.grey.shade500;
   static Color kBackground = Colors.grey.shade200;
   static const Color kCard = Color(0xffDADBFF);
+}
+
+class AppFont {
+  static const String secondary = "PlayFairDiplay";
+  static const String primary = 'BlackOpsOne';
 }
 
 const List<String> categoryType = [

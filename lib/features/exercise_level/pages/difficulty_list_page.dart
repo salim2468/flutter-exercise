@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_exercise/common/loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/dio_client.dart';
-import '../../../constant/strings.dart';
 import '../../../model/exercise/exercise.dart';
 import '../../category/custom_widget/category_list_card.dart';
 
@@ -10,7 +9,7 @@ final difficultyListProvider = FutureProvider.autoDispose<ExerciseList>((ref) {
   final dioClient = ref.watch(dioClientProivder);
   final category = ref.watch(difficultyTitleProvider);
 
-  return dioClient.getExerciseOfCategory(endPoint: '?difficulty=${category}');
+  return dioClient.getExerciseOfCategory(endPoint: '?difficulty=$category');
 });
 
 final difficultyTitleProvider = StateProvider((ref) => '');

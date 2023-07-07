@@ -12,7 +12,11 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Exercise'),
+        title: const CustomText(
+          text: 'Exercise',
+          fontFamily: 'BlackOpsOne',
+          fontSize: 25,
+        ),
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: const SafeArea(
