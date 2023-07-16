@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../common/text.dart';
-import '../../constant/strings.dart';
+import '../../../common/text.dart';
+import '../../../constant/strings.dart';
 
 class WelcomeImage extends StatelessWidget {
   const WelcomeImage({super.key});

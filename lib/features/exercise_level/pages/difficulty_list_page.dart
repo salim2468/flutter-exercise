@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_exercise/common/loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/dio_client.dart';
+import '../../../custom_widget/list_card.dart';
 import '../../../model/exercise/exercise.dart';
-import '../../category/custom_widget/category_list_card.dart';
 
 final difficultyListProvider = FutureProvider.autoDispose<ExerciseList>((ref) {
   final dioClient = ref.watch(dioClientProivder);
@@ -33,7 +33,7 @@ class DifficultyListPage extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     Exercise exercise = data.exerciseList[index];
                     // using CategoryListCard for Difficulty since response is of same type
-                    return CategoryListCard(exercise);
+                    return ListCard(exercise);
                   },
                 )),
             error: (error, stact) => Text(error.toString()),

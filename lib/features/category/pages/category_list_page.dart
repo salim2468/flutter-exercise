@@ -3,8 +3,8 @@ import 'package:flutter_exercise/common/loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/dio_client.dart';
 import '../../../constant/strings.dart';
+import '../../../custom_widget/list_card.dart';
 import '../../../model/exercise/exercise.dart';
-import '../custom_widget/category_list_card.dart';
 
 final categoryListProvider = FutureProvider.autoDispose<ExerciseList>((ref) {
   final dioClient = ref.watch(dioClientProivder);
@@ -34,7 +34,7 @@ class CategoryListPage extends ConsumerWidget {
                   itemCount: data.exerciseList.length,
                   itemBuilder: (context, index) {
                     Exercise exercise = data.exerciseList[index];
-                    return CategoryListCard(exercise);
+                    return ListCard(exercise);
                   },
                 )),
             error: (error, stact) => Text(error.toString()),

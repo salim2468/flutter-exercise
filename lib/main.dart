@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_exercise/dashboard/pages/main_page.dart';
+import 'package:flutter_exercise/features/dashboard/pages/main_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {

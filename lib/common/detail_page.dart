@@ -9,8 +9,8 @@ TextStyle textStyle = const TextStyle(
   fontWeight: FontWeight.w500,
 );
 
-class CategoryDetailPage extends StatelessWidget {
-  const CategoryDetailPage(this.exercise, {super.key});
+class DetailPage extends StatelessWidget {
+  const DetailPage(this.exercise, {super.key});
   final Exercise exercise;
   @override
   Widget build(BuildContext context) {
