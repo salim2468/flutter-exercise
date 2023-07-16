@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_exercise/common/text.dart';
 import 'package:flutter_exercise/features/dashboard/custom_widget/welcome_image.dart';
+import '../../../constant/colors.dart';
 import '../../category/custom_widget/category_widget.dart';
 import '../../exercise_level/custom_widget/exercise_leve_slider.dart';
 
@@ -28,11 +29,12 @@ class MainPage extends StatelessWidget {
               height: 15,
             ),
             CustomText(
-              text: 'Start From today',
+              text: 'Start',
               alignment: Alignment.topLeft,
               fontWeight: FontWeight.w700,
               marginHorizontal: 6,
               marginVertical: 2,
+              color: AppColor.kText,
             ),
             ExerciseLevelSlider(),
             SizedBox(
@@ -44,6 +46,7 @@ class MainPage extends StatelessWidget {
               fontWeight: FontWeight.w700,
               marginHorizontal: 6,
               marginVertical: 2,
+              color: AppColor.kText,
             ),
             CategoryWidget(),
             SizedBox(

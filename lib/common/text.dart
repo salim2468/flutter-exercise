@@ -40,7 +40,7 @@ class CustomText extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-            fontSize: fontSize ?? 20,
+            fontSize: fontSize ?? 17,
             color: color,
             fontWeight: fontWeight,
             fontFamily: fontFamily ?? AppFont.secondary),

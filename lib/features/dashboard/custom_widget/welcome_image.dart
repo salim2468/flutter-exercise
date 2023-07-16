@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../common/text.dart';
+import '../../../constant/colors.dart';
 import '../../../constant/strings.dart';
 
 class WelcomeImage extends StatelessWidget {
@@ -28,16 +29,19 @@ class WelcomeImage extends StatelessWidget {
                   text: 'Welcome,',
                   fontFamily: AppFont.primary,
                   fontSize: 20,
+                  color: AppColor.kCard,
                 ),
                 CustomText(
                   text: 'Get Fit',
                   fontFamily: AppFont.primary,
                   fontSize: 30,
+                  color: AppColor.kText,
                 ),
                 CustomText(
                   text: 'Transform your fitness into the shape',
                   fontFamily: AppFont.primary,
                   fontSize: 15,
+                  color: AppColor.kCard,
                 ),
               ],
             ),
