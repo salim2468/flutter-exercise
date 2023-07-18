@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'constant/video_strings.dart';
-import 'custom_widget/video_card.dart';
+import '../constant/video_strings.dart';
+import '../custom_widget/video_card.dart';
 
 class VideoPage extends StatelessWidget {
   const VideoPage({super.key});
