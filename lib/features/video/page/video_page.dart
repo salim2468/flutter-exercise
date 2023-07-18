@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../constant/colors.dart';
 import 'constant/video_strings.dart';
 import 'custom_widget/video_card.dart';
 
@@ -17,5 +16,3 @@ class VideoPage extends StatelessWidget {
         });
   }
 }
-
-class AppColors {}

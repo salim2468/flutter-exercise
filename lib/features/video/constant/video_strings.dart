@@ -1,7 +1,4 @@
 class AppVideoString {
-  // static const String title = "Stay Fit and Shape Your Self";
-  // static Color kPrimary = Colors.grey.shade500;
-  // static Color kBackground = Colors.grey.shade200;
   static const List<Map<String, String>> videoList = [
     {
       'title': 'Cardio for Beginner',

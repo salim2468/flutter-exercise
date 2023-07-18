@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_exercise/common/button.dart';
 import 'package:flutter_exercise/common/text.dart';
 import 'package:flutter_exercise/features/dashboard/custom_widget/welcome_image.dart';
-
 import '../../../constant/colors.dart';
 import '../../category/custom_widget/category_widget.dart';
 import '../../exercise_level/custom_widget/exercise_leve_slider.dart';
-import '../../video/video_page.dart';
+import '../../video/page/video_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    goToVideoPage() {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => const VideoPage()));
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const CustomText(
