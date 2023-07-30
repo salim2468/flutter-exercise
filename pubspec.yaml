@@ -40,6 +40,9 @@ dependencies:
   video_player: ^2.7.0
 
   youtube_player_flutter: ^8.1.2
+
+
+  
     
 
 
@@ -53,6 +56,16 @@ dev_dependencies:
 
   json_serializable: ^6.7.0
   build_runner: ^2.4.5  
+
+
+  flutter_native_splash: ^2.3.1
+
+flutter_native_splash:
+  color: "#C7C7C7"
+  image: assets/splash.png 
+  android: true
+  android_12: 
+    image: assets/splash.png
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
