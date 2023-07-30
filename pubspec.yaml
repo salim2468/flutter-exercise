@@ -36,6 +36,10 @@ dependencies:
   json_annotation: ^4.8.1
 
   carousel_slider: ^4.2.1
+
+  video_player: ^2.7.0
+
+  youtube_player_flutter: ^8.1.2
     
 
 
