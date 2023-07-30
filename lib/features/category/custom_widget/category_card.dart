@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exercise/common/text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../constant/colors.dart';
 import '../pages/category_list_page.dart';
 
 class CategoryCard extends ConsumerWidget {
@@ -28,7 +28,7 @@ class CategoryCard extends ConsumerWidget {
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 7, 7, 7).withOpacity(0.5),
           borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Color.fromRGBO(59, 59, 59, 1),
                 spreadRadius: 1,
@@ -43,9 +43,9 @@ class CategoryCard extends ConsumerWidget {
               imagePath,
               height: 30,
             ),
-            Text(
-              categoryType,
-              style: const TextStyle(color: AppColor.kWhite),
+            CustomText(
+              text: categoryType,
+              fontSize: 15,
             ),
           ],
         ),

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import '../../../constant/colors.dart';
 import '../../../model/exercise/exercise.dart';
-import '../pages/category_detail_page.dart';
+import '../common/detail_page.dart';
 
-class CategoryListCard extends StatelessWidget {
-  const CategoryListCard(this.exercise, {super.key});
+class ListCard extends StatelessWidget {
+  const ListCard(this.exercise, {super.key});
   final Exercise exercise;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => CategoryDetailPage(exercise)));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => DetailPage(exercise)));
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

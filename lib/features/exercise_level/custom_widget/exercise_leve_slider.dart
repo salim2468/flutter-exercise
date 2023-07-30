@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_exercise/common/text.dart';
 import 'package:flutter_exercise/constant/strings.dart';
 import 'package:flutter_exercise/features/exercise_level/pages/difficulty_list_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,7 +34,16 @@ class ExerciseLevelSlider extends ConsumerWidget {
           return InkWell(
             onTap: () => onTap(context, ref, levelList[index]),
             child: Container(
-              margin: const EdgeInsets.all(5),
+              margin: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      spreadRadius: 6,
+                      blurRadius: 6,
+                      offset: Offset(0, 2)),
+                ],
+              ),
               child: Stack(
                 children: [
                   Image.asset(
@@ -47,14 +57,14 @@ class ExerciseLevelSlider extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          sloganList[index],
-                          style: const TextStyle(
-                              fontSize: 19, fontWeight: FontWeight.bold),
+                        CustomText(
+                          text: sloganList[index],
+                          fontSize: 16,
                         ),
-                        Text(levelList[index].toUpperCase(),
-                            style: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w900)),
+                        CustomText(
+                          text: levelList[index].toUpperCase(),
+                          fontFamily: AppFont.primary,
+                        ),
                       ],
                     ),
                   )
