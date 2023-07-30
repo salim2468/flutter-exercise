@@ -14,11 +14,11 @@ class CategoryListCard extends StatelessWidget {
             builder: (context) => CategoryDetailPage(exercise)));
       },
       child: Container(
-        margin: const EdgeInsets.all(6),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: AppColor.kCardSecondary,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,8 +39,16 @@ class CategoryListCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
-                      color: AppColor.kWhite,
-                      borderRadius: BorderRadius.circular(8)),
+                    color: AppColor.kWhite,
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 1,
+                          blurRadius: 4,
+                          offset: Offset(2, 2))
+                    ],
+                  ),
                   child: Text(
                     exercise.difficulty,
                     style: const TextStyle(
@@ -58,7 +66,8 @@ class CategoryListCard extends StatelessWidget {
                     ),
                     Text(
                       exercise.muscle.toUpperCase(),
-                      style: const TextStyle(color: AppColor.kBlack),
+                      style: const TextStyle(
+                          color: AppColor.kBlack, fontWeight: FontWeight.w600),
                     ),
                   ],
                 )
