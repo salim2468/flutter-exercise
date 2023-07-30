@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_exercise/constant/colors.dart';
 import 'package:flutter_exercise/model/exercise/exercise.dart';
 
-import '../../../custom_widget/custom_card.dart';
-
-TextStyle textStyle = const TextStyle(
-  fontSize: 17,
-  fontWeight: FontWeight.w500,
-);
+import '../custom_widget/detail_page_info_card.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage(this.exercise, {super.key});
@@ -15,6 +9,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(exercise.name)),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -22,66 +17,30 @@ class DetailPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CardContainer(
-                  text: exercise.name,
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  backgroundColor: AppColor.kBlack,
-                  margin: 10,
-                  width: double.maxFinite,
-                  boxShadow: [
-                    BoxShadow(
-                        color: AppColor.kBackground,
-                        blurRadius: 2,
-                        spreadRadius: 1),
-                  ],
-                ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'Type: ${exercise.type}',
-                  style: textStyle,
-                ),
+                DetailPageInfoCard(text: 'Type: ${exercise.type}'),
                 const SizedBox(
                   height: 8,
                 ),
-                Text(
-                  'Muscle: ${exercise.muscle}',
-                  style: textStyle,
-                ),
+                DetailPageInfoCard(text: 'Muscle: ${exercise.muscle}'),
                 const SizedBox(
                   height: 8,
                 ),
-                Text(
-                  'Equipments: ${exercise.equipment}',
-                  style: textStyle,
-                ),
+                DetailPageInfoCard(text: 'Equipments: ${exercise.equipment}'),
                 const SizedBox(
                   height: 8,
                 ),
-                Text(
-                  'Difficulty: ${exercise.difficulty}',
-                  style: textStyle,
-                ),
+                DetailPageInfoCard(text: 'Difficulty: ${exercise.difficulty}'),
                 const SizedBox(
                   height: 8,
                 ),
                 Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: const BoxDecoration(
-                    color: AppColor.kBlack,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(14),
-                      bottomRight: Radius.circular(14),
-                    ),
-                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
                   child: Text(
                     exercise.instructions,
-                    style: textStyle.copyWith(
-                        fontSize: 15, color: Colors.grey.shade300),
+                    style: TextStyle(fontSize: 15, color: Colors.grey.shade300),
                   ),
                 )
               ],

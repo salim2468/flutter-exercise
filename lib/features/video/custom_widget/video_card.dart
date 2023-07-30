@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-
 import '../../../common/text.dart';
 import '../../../constant/colors.dart';
-import '../video_player_widget.dart';
+import '../page/video_player_page.dart';
 
 class VideoCard extends StatelessWidget {
   final Map<String, String> video;
   const VideoCard({super.key, required this.video});
 
   onTap(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => VideoPlayerWidget(video: video)));
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => VideoPlayerPage(video: video)));
   }
 
   @override
