@@ -1,34 +1,56 @@
 import 'package:flutter/material.dart';
 import '../../../constant/colors.dart';
 import '../../../model/exercise/exercise.dart';
-import '../common/detail_page.dart';
 
 class ListCard extends StatelessWidget {
-  const ListCard(this.exercise, {super.key});
+  const ListCard(
+      {required this.exercise,
+      required this.onPressed,
+      this.cardIcon,
+      this.onIconPressed,
+      this.downloadPage = false,
+      super.key});
   final Exercise exercise;
+  final Function() onPressed;
+  final IconData? cardIcon;
+  final Function()? onIconPressed;
+  final bool downloadPage;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => DetailPage(exercise)));
-      },
+      onTap: onPressed,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppColor.kCardSecondary,
+          color: AppColor.kPrimary,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              exercise.name,
-              style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                  color: AppColor.kBlack),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  exercise.name,
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                      color: AppColor.kBlack),
+                ),
+                downloadPage
+                    ? IconButton(
+                        onPressed: onIconPressed,
+                        // () {
+                        //   Hive.box('exercise_box').deleteAt(index!);
+                        // },
+                        icon: Icon(
+                          cardIcon,
+                          color: AppColor.kBlack,
+                        ))
+                    : SizedBox(),
+              ],
             ),
             const SizedBox(
               height: 5,
@@ -41,9 +63,9 @@ class ListCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppColor.kWhite,
                     borderRadius: BorderRadius.circular(8),
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
-                          color: Colors.grey,
+                          color: Colors.grey.shade800,
                           spreadRadius: 1,
                           blurRadius: 4,
                           offset: Offset(2, 2))

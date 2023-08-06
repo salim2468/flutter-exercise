@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exercise/common/loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../common/detail_page.dart';
 import '../../../config/dio_client.dart';
 import '../../../custom_widget/list_card.dart';
 import '../../../model/exercise/exercise.dart';
@@ -33,7 +34,15 @@ class DifficultyListPage extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     Exercise exercise = data.exerciseList[index];
                     // using CategoryListCard for Difficulty since response is of same type
-                    return ListCard(exercise);
+                    return ListCard(
+                      exercise: exercise,
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DetailPage(
+                                  exercise,
+                                )));
+                      },
+                    );
                   },
                 )),
             error: (error, stact) => Text(error.toString()),

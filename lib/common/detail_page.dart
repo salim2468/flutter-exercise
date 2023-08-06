@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exercise/common/snackbar.dart';
+import 'package:flutter_exercise/constant/colors.dart';
+import 'package:flutter_exercise/features/download/model/exercise_db/exercise_db.dart';
 import 'package:flutter_exercise/model/exercise/exercise.dart';
+import 'package:hive/hive.dart';
 
 import '../custom_widget/detail_page_info_card.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage(this.exercise, {super.key});
+  const DetailPage(this.exercise, {this.downloadPage = false, super.key});
   final Exercise exercise;
+  final bool downloadPage;
+
   @override
   Widget build(BuildContext context) {
+    final ExerciseDB exerciseDB = ExerciseDB.fromExercise(exercise);
     return Scaffold(
       appBar: AppBar(title: Text(exercise.name)),
       body: SafeArea(
@@ -37,10 +44,14 @@ class DetailPage extends StatelessWidget {
                   height: 8,
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.only(top: 8, bottom: 70),
                   child: Text(
                     exercise.instructions,
-                    style: TextStyle(fontSize: 15, color: Colors.grey.shade300),
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey.shade400,
+                    ),
                   ),
                 )
               ],
@@ -48,6 +59,25 @@ class DetailPage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: downloadPage
+          ? SizedBox()
+          : FloatingActionButton(
+              backgroundColor: AppColor.kPrimary,
+              onPressed: () {},
+              child: IconButton(
+                  onPressed: () {
+                    var filteredUsers = Hive.box('exercise_box')
+                        .values
+                        .where((exe) => exe.name == exercise.name);
+                    if (filteredUsers.length > 0) {
+                      showSnackBar(context, 'Already Downloaded');
+                      return;
+                    }
+                    Hive.box('exercise_box').add(exerciseDB);
+                    showSnackBar(context, 'Downloaded');
+                  },
+                  icon: Icon(Icons.download)),
+            ),
     );
   }
 }
