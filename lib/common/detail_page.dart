@@ -66,6 +66,13 @@ class DetailPage extends StatelessWidget {
               onPressed: () {},
               child: IconButton(
                   onPressed: () {
+                    var filteredUsers = Hive.box('exercise_box')
+                        .values
+                        .where((exe) => exe.name == exercise.name);
+                    if (filteredUsers.length > 0) {
+                      showSnackBar(context, 'Already Downloaded');
+                      return;
+                    }
                     Hive.box('exercise_box').add(exerciseDB);
                     showSnackBar(context, 'Downloaded');
                   },
