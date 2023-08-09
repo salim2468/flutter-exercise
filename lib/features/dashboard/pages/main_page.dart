@@ -4,6 +4,7 @@ import 'package:flutter_exercise/common/text.dart';
 import 'package:flutter_exercise/features/dashboard/custom_widget/welcome_image.dart';
 import '../../../constant/colors.dart';
 import '../../category/custom_widget/category_widget.dart';
+import '../../download/pages/download_page.dart';
 import '../../exercise_level/custom_widget/exercise_leve_slider.dart';
 import '../../video/page/video_page.dart';
 
@@ -20,6 +21,14 @@ class MainPage extends StatelessWidget {
           fontSize: 25,
         ),
         systemOverlayStyle: SystemUiOverlayStyle.light,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => DownloadPage()));
+              },
+              icon: Icon(Icons.save_alt_outlined))
+        ],
       ),
       body: const SafeArea(
         child: SizedBox(

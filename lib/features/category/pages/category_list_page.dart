@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exercise/common/loader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../common/detail_page.dart';
 import '../../../config/dio_client.dart';
 import '../../../constant/strings.dart';
 import '../../../custom_widget/list_card.dart';
@@ -34,7 +35,15 @@ class CategoryListPage extends ConsumerWidget {
                   itemCount: data.exerciseList.length,
                   itemBuilder: (context, index) {
                     Exercise exercise = data.exerciseList[index];
-                    return ListCard(exercise);
+                    return ListCard(
+                      exercise: exercise,
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DetailPage(
+                                  exercise,
+                                )));
+                      },
+                    );
                   },
                 )),
             error: (error, stact) => Text(error.toString()),
